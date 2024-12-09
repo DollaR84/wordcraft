@@ -14,6 +14,7 @@ from .crafter import Crafter
 from .gui import CraftGUI, ReplacementsGUI
 from .saver import Saver
 from .settings import CrafterSettings
+from .translations import Translator
 from .types import CorrectType, Languages
 
 
@@ -57,11 +58,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
     @property
     def not_lang_tool_supports_label(self) -> str:
-        return _("This language is only available for the simple method")
+        return Translator.available_only_for_simple_method
 
     @property
     def not_autocorrect_supports_label(self) -> str:
-        return _("This language is only available for the extended method")
+        return Translator.available_only_for_extended_method
 
     def output(self, corrected_text: str):
         status = False
@@ -69,12 +70,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             return
 
         if not self.config.need_auto_correct and not self.config.need_copy_to_clipboard:
-            ui.message(_("errors found"))
+            ui.message(Translator.errors_found)
+            wx.CallAfter(CraftGUI.create_craft_gui, self.crafter)
 
         if self.config.need_auto_correct:
             status = self.corrector.set_text(corrected_text)
             if status:
-                wx.CallLater(500, ui.message, "\n".join([_("corrected to:"), corrected_text]))
+                wx.CallLater(500, ui.message, "\n".join([Translator.corrected_to, corrected_text]))
 
         if self.config.need_copy_to_clipboard:
             wx.CallLater(500, api.copyToClip, corrected_text, notify=True)
@@ -82,7 +84,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def process(self, is_shift: bool = False):
         origin_text = self.corrector.get_text()
         if origin_text is None:
-            return ui.message(_("No selection"))
+            return ui.message(Translator.no_selection)
 
         if self.config.correct_default == CorrectType.Extended:
             func = self.crafter.correct_simple if is_shift else self.crafter.correct_extended
@@ -108,9 +110,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def get_variants(self, is_shift: bool = False):
         origin_text = self.corrector.get_text()
         if origin_text is None:
-            return ui.message(_("No selection"))
+            return ui.message(Translator.no_selection)
         elif len(origin_text.split(' ')) > 1:
-            return ui.message(_("replacements are suggested for the word"))
+            return ui.message(Translator.replacements_suggested_for_word)
 
         if self.config.variants_default == CorrectType.Extended:
             func = self.crafter.get_variants_simple if is_shift else self.crafter.get_variants_extended
@@ -149,7 +151,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     )
     def script_change_language(self, gesture):
         lang = self.crafter.next_language()
-        ui.message(" ".join([_("language changed to "), lang.value]))
+        ui.message(" ".join([Translator.language_changed_to, lang.value]))
 
     @scriptHandler.script(
         description=_("Default method auto correct errors"),

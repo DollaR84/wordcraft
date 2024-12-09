@@ -16,6 +16,7 @@ class Languages(Enum):
     uk = _("ukrainian")
     pl = _("polish")
     cs = _("czech")
+    tr = _("turkish")
     de = _("german")
     fr = _("french")
     es = _("spanish")

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>wordcraft 1.5</title>
+</head>
+<body>
+<h1>wordcraft</h1>
+<ul>
+<li>Yazar: Ruslan Dolovaniuk (Ukrayna)</li>
+<li>PayPal: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B3VG4L8B7CV3Y&source=url">Donate</a></li>
+</ul>
+<p>
+Bu eklenti, metinlerdeki dil bilgisi ve yazım hatalarını düzeltmeyi kolaylaştırmak için tasarlanmıştır.<br>
+İki sistem kullanır: Otomatik Düzeltmeyi temel alan daha basit bir sistem ve LanguageTool'u temel alan daha karmaşık bir sistem.<br>
+</p>
+<h2>AutoCorrect</h2>
+<p>
+İlk sistem Otomatik Düzelt kitaplığını temel alır.<br>
+Yazım hatalarını denetlemek ve düzeltmek için modelleri kullanır. Otomatik Düzelt kitaplığı, metni analiz etmek ve en olası düzeltmeleri önermek için doğal dil işleme (NLP) tekniklerini kullanır.<br>
+</p>
+<h2>LanguageTool</h2>
+<p>
+İkinci, daha karmaşık sistem ise LanguageTool kütüphanesini temel alır.<br>
+Hem dilbilgisi hem de yazım hatalarının derinlemesine denetimi için kullanılır. Bu kütüphane Java gerektirir ve dilsel metin analizi için güçlü bir araç kullanır.<br>
+LanguageTool, metindeki hataları tespit etmek ve düzeltmek için kurallar ve algoritmalar kullanır. Bu, yalnızca yazım hatalarını düzeltmenize değil, aynı zamanda karmaşık dilbilgisi hatalarını düzeltmenize ve metnin stilini geliştirmenize de olanak tanır.<br>
+</p>
+
+<h2>Kısayol tuşlarının listesi:</h2>
+<ul>
+<li>NVDA+=: varsayılan yöntemi kullanarak metindeki hataları otomatik olarak düzeltir;</li>
+<li>NVDA+SHIFT+=: metindeki hataların alternatif bir yöntem kullanılarak otomatik olarak düzeltilmesi;</li>
+<li>NVDA+ALT+=: varsayılan yöntemi kullanarak sözcük değiştirme seçeneklerini alma;</li>
+<li>NVDA+ALT+SHIFT+=: alternatif bir yöntem kullanarak bir sözcüğü değiştirme seçeneklerinin alınması;</li>
+<li>NVDA+CTRL+=: eklenti penceresini açar;</li>
+<li>NVDA+CTRL+ALT+=: dili değiştirir;</li>
+</ul>
+<p>
+Açık eklenti penceresinde:
+<ul>
+<li>CTRL+ENTER: bir metin alanında "Denetle" düğmesinde olduğu gibi metin denetim modunu başlatır;</li>
+<li>ENTER: Bulunan hatalar listesindeki bir hata üzerine ENTER tuşuna basın: önerilen yalnızca bir değiştirme varsa, bunu metinde hemen değiştirir, aksi takdirde seçim için bir değiştirme listesi görüntüler ve değiştirmeyi seçip tıkladıktan sonra ENTER metinde onun yerine geçer;</li>
+</ul>
+</p>
+</body>
+</html>

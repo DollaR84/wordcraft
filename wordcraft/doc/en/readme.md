@@ -15,13 +15,13 @@ It is used for in-depth checking of both grammatical and spelling errors. This l
 LanguageTool uses rules and algorithms to detect and correct errors in text. This allows you to not only correct spelling errors, but also correct complex grammatical errors and improve the style of the text.
 
 ## List of hotkeys:
-* NVDA+=: default method for autocorrecting errors;
-* NVDA+SHIFT+=: alternative method for auto-correcting errors;
-* NVDA+ALT+=: default method for getting replacement options;
-* NVDA+ALT+SHIFT+=: alternative method for obtaining replacement options;
+* NVDA+=: autocorrect errors in text using the default method;
+* NVDA+SHIFT+=: autocorrect errors in text using an alternative method;
+* NVDA+ALT+=: get word replacement options using the default method;
+* NVDA+ALT+SHIFT+=: get word replacement options using an alternative method;
 * NVDA+CONTROL+=: open add-on window;
 * NVDA+CONTROL+ALT+=: change language;
 
 In the open add-on window:
 * CONTROL+ENTER in a text field starts the text checking mode, as with the "Check" button;
-* ENTER on an error in the list of found errors: if there is only one proposed replacement, it immediately copies it to the clipboard, otherwise it displays a list of replacements for selection, and after selecting and clicking on the replacement, ENTER copies it to the clipboard;
+* ENTER on an error in the list of found errors: if there is only one suggested replacement, it immediately replaces it in the text, otherwise it gives a list of replacements to choose from, and after selecting and pressing ENTER on a replacement, it replaces it in the text;

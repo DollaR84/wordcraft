@@ -74,9 +74,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             wx.CallAfter(CraftGUI.create_craft_gui, self.crafter)
 
         if self.config.need_auto_correct:
-            status = self.corrector.set_text(corrected_text)
-            if status:
-                wx.CallLater(500, ui.message, "\n".join([Translator.corrected_to, corrected_text]))
+            if self.crafter.matches:
+                wx.CallAfter(CraftGUI.create_craft_gui, self.crafter, self.corrector)
+            else:
+                status = self.corrector.set_text(corrected_text)
+                if status:
+                    wx.CallLater(500, ui.message, "\n".join([Translator.corrected_to, corrected_text]))
 
         if self.config.need_copy_to_clipboard:
             wx.CallLater(500, api.copyToClip, corrected_text, notify=True)
